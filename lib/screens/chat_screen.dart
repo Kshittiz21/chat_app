@@ -3,10 +3,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 class ChatScreen extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
-    return Scaffold (
+    return Scaffold(
       body: StreamBuilder(
         stream: FirebaseFirestore.instance // there is always one
             // active instance of firebase managed on our behalf
@@ -36,20 +35,13 @@ class ChatScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
-          onPressed: () //async
-              {
-            //  await Firebase.initializeApp();
-            // // We also need to import firebase_core.dart file b/c
-            // // before using any firebase core products we need to
-            // // Firebase.initializeApp(); and it returns future.
-            // FirebaseFirestore.instance // there is always one
-            //     // active instance of firebase managed on our behalf
-            //     // using which we can execute methods:
-            //     .collection('chats/03W8nBQbWfr9JHX6YwxQ/messages')
-            //     // this is the path to our collections
-            //     .snapshots();
+          onPressed: () {
+            FirebaseFirestore.instance
+                .collection('chats/03W8nBQbWfr9JHX6YwxQ/messages')
+                .add({
+              'text': 'This was added by clicking the button',
+            });
           }),
     );
   }
-
 }
