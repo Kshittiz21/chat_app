@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 
 class AuthForm extends StatefulWidget {
+  AuthForm(this.submitFn);
+
+  final void Function(
+    String email,
+    String password,
+    String userName,
+    bool isLogin,
+  ) submitFn;
+
   @override
   _AuthFormState createState() => _AuthFormState();
 }
@@ -19,10 +28,12 @@ class _AuthFormState extends State<AuthForm> {
 
     if (isValid) {
       _formKey.currentState.save();
-      print(_userEmail);
-      print(_userName);
-      print(_userPassword);
-      // USe those values to send our auth request...
+      widget.submitFn(
+        _userEmail,
+        _userName,
+        _userPassword,
+        _isLogin,
+      );
     }
   }
 
@@ -55,20 +66,20 @@ class _AuthFormState extends State<AuthForm> {
                       _userEmail = value;
                     },
                   ),
-                  if(!_isLogin)
-                  TextFormField(
-                    key: ValueKey('UserName'),
-                    validator: (value) {
-                      if (value.isEmpty || value.length < 4) {
-                        return 'Please Enter at least 4 characters';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(labelText: 'UserName'),
-                    onSaved: (value) {
-                      _userName = value;
-                    },
-                  ),
+                  if (!_isLogin)
+                    TextFormField(
+                      key: ValueKey('UserName'),
+                      validator: (value) {
+                        if (value.isEmpty || value.length < 4) {
+                          return 'Please Enter at least 4 characters';
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(labelText: 'UserName'),
+                      onSaved: (value) {
+                        _userName = value;
+                      },
+                    ),
                   TextFormField(
                     key: ValueKey('Password'),
                     validator: (value) {
