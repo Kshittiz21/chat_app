@@ -31,10 +31,16 @@ class _AuthFormState extends State<AuthForm> {
                   ),
                   SizedBox(height: 12),
                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
                     onPressed: () {},
                     child: Text('Login'),
                   ),
                   TextButton(
+                //    textColor: Theme.of(context).primaryColor,
                     onPressed: () {},
                     child: Text('Create New Account'),
                   ),

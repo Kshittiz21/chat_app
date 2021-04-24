@@ -8,7 +8,7 @@ void main() async {
   await Firebase.initializeApp();
   runApp(MyApp());
 }
-// We could have called firebase.initializeApp() here or in initState() inside 
+// We could have called firebase.initializeApp() here or in initState() inside
 // the class where we are using Firebase but this is a better option because in
 // the other one, we will get an error screen for 1 sec bcoz the screen will
 // try to load without Firebase.initializeApp() called and hence error will occur
@@ -19,7 +19,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Chat',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.pink,
+        backgroundColor: Colors.pink,
+        accentColor: Colors.deepPurple,
+        accentColorBrightness: Brightness.dark,
+        // buttonTheme: ButtonTheme.of(context).copyWith(
+        //   buttonColor: Colors.pink,
+        //   textTheme: ButtonTextTheme.primary,
+        //   shape: RoundedRectangleBorder(
+        //     borderRadius: BorderRadius.circular(20),
+        //   ),
+        // ),
+        // removed becaus these now do not affect Elevated Button
       ),
       home: AuthScreen(),
     );
