@@ -29,9 +29,10 @@ class _AuthFormState extends State<AuthForm> {
     if (isValid) {
       _formKey.currentState.save();
       widget.submitFn(
-        _userEmail,
-        _userName,
-        _userPassword,
+        _userEmail.trim(), 
+        // . trim() to remove excess white space and prevent error
+        _userName.trim(),
+        _userPassword.trim(),
         _isLogin,
       );
     }
