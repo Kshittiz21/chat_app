@@ -16,10 +16,13 @@ class AuthForm extends StatefulWidget {
 }
 
 class _AuthFormState extends State<AuthForm> {
+  // TextEditingController _emailController = new TextEditingController();
+  // TextEditingController _passwordController = new TextEditingController();
+  // TextEditingController _usernameController = new TextEditingController();
   final _formKey = GlobalKey<FormState>();
   var _isLogin = true;
   var _userEmail = '';
-  var _userName = '';
+  var _username = '';
   var _userPassword = '';
 
   void _trySubmit() {
@@ -32,8 +35,9 @@ class _AuthFormState extends State<AuthForm> {
       widget.submitFn(
         _userEmail.trim(),
         // . trim() to remove excess white space and prevent error
-        _userName.trim(),
+        _username.trim(),
         _userPassword.trim(),
+        //_userPassword,
         _isLogin,
       );
     }
@@ -79,14 +83,14 @@ class _AuthFormState extends State<AuthForm> {
                       },
                       decoration: InputDecoration(labelText: 'UserName'),
                       onSaved: (value) {
-                        _userName = value;
+                        _username = value;
                       },
                     ),
                   TextFormField(
                     key: ValueKey('Password'),
                     validator: (value) {
-                      if (value.isEmpty || value.length < 7) {
-                        return 'Password must be at least 7 characters long';
+                      if (value.isEmpty || value.length < 6) {
+                        return 'Password must be at least 6 characters long';
                       }
                       return null;
                     },
@@ -94,7 +98,9 @@ class _AuthFormState extends State<AuthForm> {
                     obscureText: true,
                     onSaved: (value) {
                       _userPassword = value;
+                      // print(_userPassword);
                     },
+                    //controller: _passwordController,
                   ),
                   SizedBox(height: 12),
                   if (widget.isLoading) CircularProgressIndicator(),

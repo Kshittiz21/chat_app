@@ -15,8 +15,8 @@ class _AuthScreenState extends State<AuthScreen> {
 
   void _submitAuthForm(
     String email,
-    String password,
     String username,
+    String password,
     bool isLogin,
     // BuildContext ctx,
     // use this in scaffoldMessenger in place of context if error occurs
@@ -28,11 +28,15 @@ class _AuthScreenState extends State<AuthScreen> {
         _isLoading = true;
       });
       if (isLogin) {
+        print(email);
+        print(password);
         userCredential = await _auth.signInWithEmailAndPassword(
           email: email,
           password: password,
         );
       } else {
+        print(email);
+        print(password);
         userCredential = await _auth.createUserWithEmailAndPassword(
           email: email,
           password: password,
