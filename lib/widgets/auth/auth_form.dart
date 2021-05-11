@@ -11,6 +11,7 @@ class AuthForm extends StatefulWidget {
     String email,
     String password,
     String userName,
+    File image,
     bool isLogin,
   ) submitFn;
 
@@ -52,9 +53,10 @@ class _AuthFormState extends State<AuthForm> {
       widget.submitFn(
         _userEmail.trim(),
         // . trim() to remove excess white space and prevent error
-        _username.trim(),
         _userPassword.trim(),
+        _username.trim(),
         //_userPassword,
+        _userImageFile,
         _isLogin,
       );
     }
