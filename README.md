@@ -1,16 +1,20 @@
-# chat_app
+# Chat App
 
-A new Flutter project.
+- This is a demo mobile application which is like a chat room which allows multiple authenticated users to chat at the same time with each other.
 
-## Getting Started
+- I have used Firebase for user Authentication and storing User data including images taken using camera/gallery.
 
-This project is a starting point for a Flutter application.
+- I created this app just for education purpose to learn how to implement authentication using Firebase that too with a clean code as here I have used packages like firebase_auth, firebase_storage and firebase_messenging which make our code clean and easy to understand.
 
-A few resources to get you started if this is your first Flutter project:
+## Images
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+#### Login Screen
+<img src="app_images/login_screen.jpeg"
+alt="login_screen" width="300"/>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+#### Sign Up Screen
+<img src="app_images/signup_screen.jpeg"
+alt="signup_screen" width="300"/>
+
+#### Home Screen
+<img src="app_images/home_screen.jpeg" alt="home_screen" width="300"/>
